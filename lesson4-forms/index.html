@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="user-info">
+        <div>
+            <!-- <label for="user-info-name">Имя</label> -->
+            <input type="text" name="name" id="user-info-name" placeholder="Имя">
+        </div>
+        <div>
+            <label>Пол</label>
+            <div>
+                <label for="user-info-sex-male">Мужской</label>
+                <input type="radio" name="sex" id="user-info-sex-male" value="male">
+                <label for="user-info-sex-female">Женский</label>
+                <input type="radio" name="sex" id="user-info-sex-female" value="female">
+            </div>
+            <div>
+                <label for="hobby-music">Музыка</label>
+                <input type="checkbox" name="hobby" id="hobby-music" value="music">
+
+                <label for="hobby-pc-games">Компьютерные игры</label>
+                <input type="checkbox" name="hobby" id="hobby-pc-games" value="pc-games">
+
+                <label for="hobby-book">Книги</label>
+                <input type="checkbox" name="hobby" id="hobby-book" value="book">
+
+                <label for="hobby-fishing">Рыбалка</label>
+                <input type="checkbox" name="hobby" id="hobby-fishing" value="fishing">
+            </div>
+            <div>
+                <label for="user-info-country">Страна</label>
+                <select id="user-info-country" name="country">
+                    <option value="russia">Россия</option>
+                    <option value="usa">США</option>
+                    <option value="germany">Германия</option>
+                    <option value="france">Франция</option>
+                </select>
+            </div>
+            <div>
+                <input type="range" min="0" max="360" id="form-range">
+            </div>
+            <button type="submit">Отправить</button>
+            <button type="reset">Очистить</button>
+        </div>
+    </form>
+    <script src="main.js"></script>
+</body>
+
+</html>
