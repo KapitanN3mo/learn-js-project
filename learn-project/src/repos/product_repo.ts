@@ -1,4 +1,4 @@
-import type { CreateProduct, Product } from "../types/product"
+import type { CreateProduct, Product, UpdateProduct } from "../types/product"
 
 export class ProductRepo {
     storage_key: string
@@ -8,11 +8,32 @@ export class ProductRepo {
         this.storage_key = storage_key
         this.counter_key = storage_key + "_counter"
     }
+    get(id: number): Product | undefined {
+        return this.getAll().find((prod) => prod.id === id)
+    }
+    search(req: string): Product[] {
+        return this.getAll().filter((prod) => prod.name.includes(req))
+    }
+    update(id: number, product: UpdateProduct): Product | undefined {
+        let items = this.getAll()
+        const index = items.findIndex((item) => item.id === id)
+        if (!index) {
+            return undefined
+        }
+        items[index] = { ...product, id: id }
+        this.save(items)
+        return items[index]
+
+    }
+    remove(id: number) {
+        this.save(this.getAll().filter(prod => prod.id != id))
+    }
     add(product: CreateProduct): Product {
         let products = this.getAll()
         let new_product: Product = { ...product, id: this.getNewId() }
         products.push(new_product)
-
+        this.save(products)
+        return new_product
     }
     save(items: Product[]) {
         localStorage.setItem(this.storage_key, JSON.stringify(items))
