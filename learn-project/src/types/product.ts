@@ -2,7 +2,7 @@ export type Product = {
     id: number
     name: string
     category_id: number
-    description: SVGStringList
+    description: string
     price: number // float
     quantity: number
 }
