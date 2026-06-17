@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание товара</title>
+</head>
+
+<body>
+    <h1>Создать товар</h1>
+    <form id="product-create-form">
+        <div style="width: 100%; display: flex; justify-content: center;">
+            <div style="display: flex; flex-direction: column; width: fit-content; gap: 3px;">
+                <input name="name" type="text" placeholder="Название товара">
+                <input name="category_id" type="number" placeholder="ID категории">
+                <textarea name="description" type="text" placeholder="Описание"></textarea>
+                <input name="price" type="number" placeholder="Цена">
+                <input name="quantity" type="number" placeholder="Количество">
+                <button type="submit">Создать</button>
+                <p id="product-create-form-status"></p>
+            </div>
+        </div>
+    </form>
+    <script src="./add_product.ts" type="module"></script>
+</body>
+
+</html>
