@@ -20,7 +20,7 @@ export class ProductRepo {
         if (!index) {
             return undefined
         }
-        items[index] = { ...product, id: id }
+        items[index] = { ...items[index], ...product, id: id }
         this.save(items)
         return items[index]
 
