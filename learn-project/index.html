@@ -4,14 +4,29 @@
 <head>
   <meta charset="UTF-8" />
   <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+  <link rel="stylesheet" href="./src/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>learn-project</title>
 </head>
 
 <body>
-  <div id="app"></div>
   <a href="./src/pages/AddProduct/add_product.html">Добавить товар</a>
+  <div id="catalog-container"></div>
   <script type="module" src="/src/main.ts"></script>
 </body>
+
+<template id="product-card-template">
+  <div class="product-card">
+    <img src="./src/assets/product-img-placeholder.png">
+    <div class="product-card-body">
+      <div class="product-card-title"></div>
+      <div class="product-card-description"></div>
+      <div class="product-card-footer">
+        <div class="product-card-quantity"></div>
+        <div class="product-card-price"></div>
+      </div>
+    </div>
+  </div>
+</template>
 
 </html>
