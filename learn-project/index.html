@@ -3,6 +3,9 @@
 
 <head>
   <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
   <link rel="stylesheet" href="./src/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,13 +20,13 @@
 
 <template id="product-card-template">
   <div class="product-card">
-    <img src="./src/assets/product-img-placeholder.png">
+    <img class="product-card-image" src="./src/assets/product-img-placeholder.png">
     <div class="product-card-body">
       <div class="product-card-title"></div>
       <div class="product-card-description"></div>
       <div class="product-card-footer">
-        <div class="product-card-quantity"></div>
         <div class="product-card-price"></div>
+        <div class="product-card-quantity"></div>
       </div>
     </div>
   </div>

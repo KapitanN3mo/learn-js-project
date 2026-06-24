@@ -5,6 +5,7 @@ export type Product = {
     description: string
     price: number // float
     quantity: number
+    image: string
 }
 
 export type CreateProduct = {
@@ -13,6 +14,7 @@ export type CreateProduct = {
     description: string
     price: number // float
     quantity: number
+    image: string
 }
 
 export type UpdateProduct = CreateProduct;

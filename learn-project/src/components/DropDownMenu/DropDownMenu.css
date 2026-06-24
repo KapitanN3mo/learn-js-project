@@ -1,0 +1,5 @@
+.ddm-container {
+    position: relative;
+    border-radius: 25px;
+    box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.213);
+}

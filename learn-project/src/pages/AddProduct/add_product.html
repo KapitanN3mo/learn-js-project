@@ -13,8 +13,11 @@
     <form id="product-create-form">
         <div style="width: 100%; display: flex; justify-content: center;">
             <div style="display: flex; flex-direction: column; width: fit-content; gap: 3px;">
+                <input type="file" name="product_image" placeholder="Добавьте изображение товара">
+                <image id="product-image-preview" style="max-width: 300px;" />
                 <input name="name" type="text" placeholder="Название товара">
-                <input name="category_id" type="number" placeholder="ID категории">
+                <input name="category_name" type="text" placeholder="Категория">
+                <div id="category-dd-menu-mount"></div>
                 <textarea name="description" type="text" placeholder="Описание"></textarea>
                 <input name="price" type="number" placeholder="Цена">
                 <input name="quantity" type="number" placeholder="Количество">

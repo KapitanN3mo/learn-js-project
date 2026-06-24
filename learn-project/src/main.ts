@@ -14,10 +14,13 @@ window.addEventListener("load", () => {
     const products_repo = new ProductRepo(AppConfig.PRODUCT_REPO_KEY)
     products_repo.getAll().forEach((product) => {
         const card = card_template.content.cloneNode(true) as HTMLDivElement
+        if (product.image) {
+            card.querySelector<HTMLImageElement>(".product-card-image")!!.src = product.image
+        }
         card.querySelector<HTMLParagraphElement>(".product-card-title")!!.innerText = product.name
         card.querySelector<HTMLParagraphElement>(".product-card-description")!!.innerText = product.description
         card.querySelector<HTMLDivElement>(".product-card-price")!!.innerHTML = product.price + " ₽"
-        card.querySelector<HTMLDivElement>(".product-card-quantity")!!.innerText = product.quantity + " шт"
+        card.querySelector<HTMLDivElement>(".product-card-quantity")!!.innerText = `В наличии: ${product.quantity} шт`
         card_container.appendChild(card)
     })
 })
