@@ -29,6 +29,7 @@ export class CategoryRepo {
         this.save(this.getAll().filter(prod => prod.id != id))
     }
     add(product: CreateProductCategory): ProductCategory {
+        console.log("called category add")
         let products = this.getAll()
         let new_product: ProductCategory = { ...product, id: this.getNewId() }
         products.push(new_product)

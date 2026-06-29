@@ -36,14 +36,26 @@ export class DropDownMenu {
             console.log("Не удалось найти шаблон ddm_container")
             return
         }
-        const cont = dd_container_template.content.cloneNode(true)
+        const cont = dd_container_template.content.cloneNode(true) as DocumentFragment
         this.items.forEach((item) => {
             const item_obj = dd_item_template.content.cloneNode(true) as HTMLDivElement
-            item_obj.querySelector<HTMLDivElement>(".ddm-item-value")!!.innerText = item.value
-            item_obj.onclick = item.onclick
-            cont.appendChild(item_obj)
+            const value_obj = item_obj.querySelector<HTMLDivElement>(".ddm-item-value")!!
+            value_obj.innerText = item.value
+            value_obj.addEventListener("click", item.onclick)
+            cont.querySelector<HTMLDivElement>(".ddm-container")!!.appendChild(item_obj)
         })
-        root.innerHTML = ""
-        root.appendChild(cont)
+        root.replaceChildren(cont)
+        const container = root.querySelector<HTMLDivElement>(".ddm-container")
+        const cont_height = container!!.clientHeight
+        container!!.style.marginBottom = `-${cont_height}px`
+        setInterval(() => {
+            document.addEventListener("click", (ev) => {
+                if (container && !container.contains(ev.target as Node)) {
+                    container.style.display = "none"
+                    root.replaceChildren()
+                }
+            })
+        }, 0)
+        // root.appendChild(cont)
     }
 }

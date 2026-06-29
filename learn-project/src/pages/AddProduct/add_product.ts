@@ -30,23 +30,29 @@ window.addEventListener("load", () => {
         return
     }
     category_input.addEventListener("input", (ev) => {
-        let target = (ev.target as HTMLInputElement)
-        const variants = category_repo.search(target.value)
         ddMenu.erase()
-        if (!variants.find((v) => { v.name == target.value })) {
-            ddMenu.add_item(`Создать: ${target.value}`, (ev) => {
-                selected_category_id = category_repo.add({ name: target.value }).id
+        let target = (ev.target as HTMLInputElement)
+        if (target.value.length > 0) {
+            const variants = category_repo.search(target.value)
+            if (!variants.find((v) => { v.name == target.value })) {
+                ddMenu.add_item(`Создать: ${target.value}`, (ev) => {
+                    selected_category_id = category_repo.add({ name: target.value }).id
+                })
+            }
+            variants.forEach((variant) => {
+                ddMenu.add_item(variant.name, (ev) => {
+                    selected_category_id = variant.id
+                    target.value = variant.name
+                })
             })
         }
-        variants.forEach((variant) => {
-            ddMenu.add_item(variant.name, (ev) => { selected_category_id = variant.id })
-        })
         ddMenu.render(dd_menu_mp)
         // console.log(target.value)
     })
 
     form?.addEventListener("submit", (ev) => {
         ev.preventDefault()
+        console.log(selected_category_id)
         const formData = new FormData(form)
 
         let prod_name = formData.get("name")
@@ -55,9 +61,9 @@ window.addEventListener("load", () => {
             return
         }
 
-        let prod_category_id = formData.get("category_id")
-        console.log(Number(prod_category_id))
-        if (typeof prod_category_id != "string" || prod_category_id.length == 0 || isNaN(Number(prod_category_id))) {
+        // let prod_category_id = formData.get("category_id")
+        // console.log(Number(prod_category_id))
+        if (!selected_category_id) {
             showFormStatus("ID категории должно быть числом")
             return
         }
@@ -92,7 +98,7 @@ window.addEventListener("load", () => {
             }
             const new_product = prod_repo.add({
                 name: prod_name,
-                category_id: Number(prod_category_id),
+                category_id: selected_category_id!!,
                 price: Number(prod_price),
                 quantity: Number(prod_quantity),
                 description: prod_description,

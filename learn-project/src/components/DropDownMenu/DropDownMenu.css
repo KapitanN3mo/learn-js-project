@@ -1,5 +1,12 @@
 .ddm-container {
     position: relative;
-    border-radius: 25px;
-    box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.213);
+    background-color: white;
+    border-radius: 5px;
+    padding: 3px;
+    box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.713);
+}
+.ddm-item-value:hover {
+    border-radius: 2px;
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 0.361);
 }
