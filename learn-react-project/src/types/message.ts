@@ -3,4 +3,5 @@ export type MessageType = {
   author_name: string;
   content: string;
   from_self: boolean;
+  color?: string;
 };
