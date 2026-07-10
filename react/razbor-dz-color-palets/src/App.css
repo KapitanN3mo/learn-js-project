@@ -1,0 +1,24 @@
+.rows-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.colored_row_container {
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  box-shadow: 1px 1px 10px rgba(133, 133, 133, 0.674);
+}
+.colored-row-number {
+  margin: auto;
+}
+
+.input-row {
+  display: flex;
+  gap: 5px;
+  /* overflow: hidden; */
+}
+.input-row input {
+  width: 100px;
+}
