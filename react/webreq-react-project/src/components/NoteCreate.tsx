@@ -4,6 +4,9 @@ import NoteTag from "./NoteTag";
 import "../styles/NoteCreate.css";
 import { BASE_API_URL } from "../config";
 
+// (DELETE) https://learnapi.kpn3o.ru/notes/123?author=kpn3o
+// const req_url = `${BASE_API_URL}/notes/${note_data.id}?author=${MY_AUTHOR_NAME}`
+
 export function NoteCreate() {
   const [note_data, setNoteData] = useState<NoteCreate>({
     author: "kpn3o",
